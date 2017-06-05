@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SelectBar">
+        <attr name="unselected_line_color" format="color" />
+        <attr name="selected_line_color" format="color" />
+        <attr name="unselected_item_color" format="color" />
+        <attr name="selected_item_color" format="color" />
+        <attr name="label_color" format="color" />
+        <attr name="item_num" format="integer" />
+        <attr name="label_array" format="reference" />
+        <attr name="selected_item_index" format="integer" />
+    </declare-styleable>
+</resources>
