@@ -38,9 +38,9 @@ public class SelectBar extends View {
     private String[] mLabelArray;
 
     /* 整个View控件的宽度 */
-    private int mViewWidth;
+    private int mMeasuredViewWidth;
     /* 整个View控件的高度 */
-    private int mViewHeight;
+    private int mMeasuredViewHeight;
 
     /* 矩形水平中心线Y轴坐标，作为绘制矩形的参考 */
     private int mMidRectHeightY;
@@ -210,20 +210,19 @@ public class SelectBar extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        mViewWidth = getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec);
-        mViewHeight = getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec);
-        setMeasuredDimension(mViewWidth, mViewHeight);
+        mMeasuredViewWidth = getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec);
+        mMeasuredViewHeight = getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec);
+        setMeasuredDimension(mMeasuredViewWidth, mMeasuredViewHeight);
 
-        mMidRectHeightY = mViewHeight / 3;
-        mTextPaint.setTextSize(mViewHeight / 3);
+        mMidRectHeightY = mMeasuredViewHeight / 3;
+        mTextPaint.setTextSize(mMeasuredViewHeight / 3);
 
-        mCircleRadius = mViewHeight / 6;
-        mCircleGap = mViewWidth / (mItemNum + 1);
+        mCircleRadius = mMeasuredViewHeight / 6;
+        mCircleGap = mMeasuredViewWidth / (mItemNum + 1);
 
         mRectLRPadding = mCircleGap / 3;
-        mRectHeight = mViewHeight / 10;
-        mRectWidth = mViewWidth - mRectLRPadding * 2;
+        mRectHeight = mMeasuredViewHeight / 10;
+        mRectWidth = mMeasuredViewWidth - mRectLRPadding * 2;
     }
 
     @Override
